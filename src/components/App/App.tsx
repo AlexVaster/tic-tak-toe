@@ -1,5 +1,6 @@
 import './App.css';
 import useStatus from '../../hooks/useStatus';
+import { Analytics } from '@vercel/analytics/react';
 
 export function History (props: any) {
 	const handleButton = (id: number) => {
@@ -60,6 +61,7 @@ export function App () {
 	return (
   		<div className="App" role="appcontainer">
       		<Game />
+					<Analytics />
       	</div>
     	);
 };
