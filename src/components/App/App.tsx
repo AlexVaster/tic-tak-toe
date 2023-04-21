@@ -1,16 +1,14 @@
-import React from 'react';
 import './App.css';
 import useStatus from '../../hooks/useStatus';
 
-
-export function History (prop) {
+export function History (props: any) {
 	const handleButton = (id: number) => {
-		prop.resetHistory(id);
+		props.resetHistory(id);
 	};
 	return (
 		<div className='history'>
 				<ol>
-						{prop.history.map((item , index: number) => 
+						{props.history.map((_item: any , index: number) => 
 							<li key={index}>
 									<button onClick={() => handleButton(index)}>
 								go to game 
@@ -23,26 +21,26 @@ export function History (prop) {
 }
 
 // Игровое поле с клетками
-export function Board (prop) {
+export function Board (props: any) {
 	return (
 		<div className='board'>
-			{prop.field.map((player: string, index: number) => 
-				<button className='square' key={index} onClick={() => prop.move(index)}>{player}</button>
+			{props.field.map((player: string, index: number) => 
+				<button className='square' key={index} onClick={() => props.move(index)}>{player}</button>
 				)}
 		</div>
 	)
 }
 
-export function Status (prop) {
+export function Status (props: any) {
 	return (
 		<div className="status-screen" role='status'>
-				<span>{prop.isDraw() ? 'Ничья!' 
-					: (prop.gameOver() ? 
-							('Победил игрок ' + (prop.whichPlayer() === 'X' ? 'O' : 'X')) : 
-							('Ходит игрок: ' + prop.whichPlayer())
+				<span>{props.isDraw() ? 'Ничья!' 
+					: (props.gameOver() ? 
+							('Победил игрок ' + (props.whichPlayer() === 'X' ? 'O' : 'X')) : 
+							('Ходит игрок: ' + props.whichPlayer())
 							)}
 				</span>
-				<History move={prop.move} field={prop.field} history={prop.history} resetHistory={prop.resetHistory}/>
+				<History move={props.move} field={props.field} history={props.history} resetHistory={props.resetHistory}/>
 		</div>);
 }
 

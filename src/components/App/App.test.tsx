@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import {App, Game} from "./App";
-import React, { Component } from "react";
+import {App} from "./App";
 import useStatus from "../../hooks/useStatus";
 
 describe("General tests", () => {

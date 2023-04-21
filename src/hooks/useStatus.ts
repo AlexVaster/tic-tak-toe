@@ -42,7 +42,7 @@ const useStatus = (initialStatus: string[]): [string[], (index: number, player: 
     } else if (id < history.length - 1){
       const test = [...history.slice(0, id + 1)];
       setHistory([...test])
-      setField(test.at(-1))
+      setField(test.at(-1)!)
     }
   }
 
