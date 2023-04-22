@@ -35,10 +35,10 @@ export function Board (props: any) {
 export function Status (props: any) {
 	return (
 		<div className="status-screen" role='status'>
-				<span>{props.isDraw() ? 'Ничья!' 
-					: (props.gameOver() ? 
+				<span>{props.gameOver() ? 
 							('Победил игрок ' + (props.whichPlayer() === 'X' ? 'O' : 'X')) : 
-							('Ходит игрок: ' + props.whichPlayer())
+							props.isDraw() ? 'Ничья!' :
+							('Ходит игрок: ' + props.whichPlayer()
 							)}
 				</span>
 				<History move={props.move} field={props.field} history={props.history} resetHistory={props.resetHistory}/>
